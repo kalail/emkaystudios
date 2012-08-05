@@ -1,2 +1,6 @@
 Django==1.4
+South==0.7.6
+django-debug-toolbar==0.9.4
+django-extensions==0.9
+gunicorn==0.14.6
 psycopg2==2.4.4

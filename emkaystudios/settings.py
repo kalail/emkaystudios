@@ -1,9 +1,36 @@
 # Django settings for emkaystudios project.
 
-DEBUG = True
+import sys
+
+if "heroku" in sys.prefix:
+    DEBUG = False
+    STATIC_URL = 'https://s3.amazonaws.com/kalail_static/'
+else:
+    DEBUG = True
+    STATIC_URL = '/static/'
+    INTERNAL_IPS = (
+        '127.0.0.1',
+        )
+    DEBUG_TOOLBAR_CONFIG = {
+        'INTERCEPT_REDIRECTS': False,
+    }
+
+
+
 TEMPLATE_DEBUG = DEBUG
 
+# Calculate paths for django and the site
+# Used as starting points for various other paths
+import os
+import django
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__) + "/../../")
+
+def relative_path(relative_root_path, target_file):
+    return os.path.join(relative_root_path, target_file)
+
 ADMINS = (
+    ('Kashif Malik', 'kashif610@gmail.com'),
     # ('Your Name', 'your_email@example.com'),
 )
 
@@ -11,10 +38,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'emkaystudios_db',                      # Or path to database file if using sqlite3.
+        'USER': 'emkaystudios_db_user',                      # Not used with sqlite3.
+        'PASSWORD': 'emkaystudios_db_password',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -59,14 +86,11 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
-
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    relative_path(SITE_ROOT, 'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -87,7 +111,7 @@ SECRET_KEY = '7t96wt*wb9c@szmmt=!a01z8#ic)fgx)mk+u0vaeht+5lj+_g0'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,8 +120,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'emkaystudios.urls'
@@ -106,6 +130,7 @@ ROOT_URLCONF = 'emkaystudios.urls'
 WSGI_APPLICATION = 'emkaystudios.wsgi.application'
 
 TEMPLATE_DIRS = (
+    relative_path(SITE_ROOT, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -119,9 +144,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
+    'south',
+    'gunicorn',
+    'debug_toolbar',
+    'django_extensions',
+    'emkaystudios',    
 )
 
 # A sample logging configuration. The only tangible logging
@@ -152,3 +182,17 @@ LOGGING = {
         },
     }
 }
+
+
+# Set up Sessions
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.contrib.messages.context_processors.messages",
+)

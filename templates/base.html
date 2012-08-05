@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>EmKay Studios{% block title %}{% endblock title %}</title>
+        {% block head %}{% endblock head %}
+        {% block css %}{% endblock css %}
+    </head>
+
+    <body>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+        <div>
+            <p>Copyright © 2012 EmKay Studios</p>
+        </div>
+    </body>
+    {% block js %}{% endblock js %}
+</html>
