@@ -6,6 +6,7 @@ if "heroku" in sys.prefix:
     DEBUG = False
     STATIC_URL = 'https://s3.amazonaws.com/kalail_static/'
 else:
+    import emkaystudios.local_settings as local_settings
     DEBUG = True
     STATIC_URL = '/static/'
     INTERNAL_IPS = (
@@ -159,6 +160,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'emkaystudios',
     'blog',
+    'storages',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -204,4 +206,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
 )
 
+# Twitter settings
 TWITTER_USERNAME = "EmKayStudios"
+
+# Amazon S3 setting
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = 'AKIAI7EOYMFRURZPCUKA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'emkaystudios_static'
+AWS_TEMP_STORAGE_BUCKET_NAME = 'emkaystudios_temp'

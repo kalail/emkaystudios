@@ -10,13 +10,13 @@
         <div class="wrapper">
             <div id="header">
                 <div id="logo">
-                    <h1><a href="#">EmKay Studios</a></h1>
+                    <h1><a href={% url emkaystudios.views.index %}>EmKay Studios</a></h1>
                     <p>A Film and VFX Studio</p>
                 </div>
                 <div id="topnav">
                     <ul>
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li class="active"><a href={% url emkaystudios.views.index %}>Home</a></li>
+                        <li><a href={% url emkaystudios.views.about %}>About</a></li>
                         <li><a href="#">Archive</a></li>
                         <li><a href="#">Blog</a></li>
                         <li class="last"><a href="#">Contact Us</a></li>
@@ -28,15 +28,12 @@
 
         {% block content %}
 
-        
-
-{% endblock content %}
-
+        {% endblock content %}
 
         <div class="wrapper">
             <div id="copyright">
                 <p class="fl_left">Copyright &copy; 2012 - All Rights Reserved - EmKay Studios</p>
-                <p class="fl_right">Time</p>
+                <p class="fl_right">{% now "SHORT_DATETIME_FORMAT" %}</p>
                 <br class="clear" />
             </div>
         </div>
