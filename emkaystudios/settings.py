@@ -4,7 +4,7 @@ import sys
 
 if "heroku" in sys.prefix:
     DEBUG = False
-    STATIC_URL = 'https://s3.amazonaws.com/kalail_static/'
+    STATIC_URL = 'https://s3.amazonaws.com/emkaystudios_static/'
 else:
     import emkaystudios.local_settings as local_settings
     DEBUG = True
