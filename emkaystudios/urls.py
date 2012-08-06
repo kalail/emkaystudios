@@ -15,6 +15,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^blog/', include(blog.urls)),
-    url(r'^$', 'emkaystudios.views.index'),
     url(r'^about/$', 'emkaystudios.views.about'),
+    url(r'^contact/$', 'emkaystudios.views.contact'),
+    url(r'^archive/$', 'emkaystudios.views.archive'),
+    url(r'^coming-soon/$', 'emkaystudios.views.coming_soon'),
+    url(r'^$', 'emkaystudios.views.index'),
 )

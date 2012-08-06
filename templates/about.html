@@ -2,6 +2,14 @@
 
 {% block title %} - About{% endblock title %}
 
+{% block nav_bar %}
+	<li><a href={% url emkaystudios.views.index %}>Home</a></li>
+    <li class="active"><a href={% url emkaystudios.views.about %}>About</a></li>
+    <li><a href={% url emkaystudios.views.archive %}>Archive</a></li>
+    <li><a href={% url emkaystudios.views.coming_soon %}>Blog</a></li>
+    <li class="last"><a href={% url emkaystudios.views.contact %}>Contact Us</a></li>
+{% endblock nav_bar %}
+
 {% block content %}
 
 <div class="wrapper">
