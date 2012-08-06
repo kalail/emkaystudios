@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}Error{% endblock title %}
+{% block title %} - Server Error!{% endblock title %}
+
 {% block content %}
 
-<h1>There was an error!</h1>
-
-<p>It seems something broke on our side. Maybe you should check our <a href={% url emkaystudios.views.index %}>Homepage</a> or send us an email about the problem.</p>
+<div class="wrapper">
+  	<div id="container">
+		<h2>There Was An Error!</h2>
+		<p>
+			It seems something has broken on our side. Either come back later or try our <a href={% url emkaystudios.view.index %}>Homepage.</a>
+		</p>
+	</div>
+</div>
 
 {% endblock content %}
