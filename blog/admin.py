@@ -3,9 +3,15 @@ from django.contrib import admin
 from emkaystudios.settings import STATIC_URL
 
 class PostAdmin(admin.ModelAdmin):
-	fields = ['title', 'body']
-	list_display = ('title', 'body', 'created_on')
-	search_fields = ['title', 'body']
+	fieldsets = [
+	(None, {'fields': ['title', 'user']}),
+	(None, {'fields': ['body']}),
+
+	]
+
+	list_display = ('title', 'user', 'created_on')
+	search_fields = ['title', 'user', 'body']
+	list_filter = ['user']
 
 class CommonMedia:
 	js = (

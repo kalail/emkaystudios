@@ -1,10 +1,59 @@
 {% extends 'base.html' %}
 
-{% block title %}{% endblock title %}
 {% block content %}
 
-<h1>Welcome to EmKay Studios!</h1>
+<div class="wrapper">
+    <div id="latest">
+        <iframe class="fl_left" src="https://www.youtube-nocookie.com/embed/qzydkG8Wqxk?rel=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+        <div class="fl_right">
+            <h2>Leverage - Short Film</h2>
+            <p>Leverage is a short action film about what it takes to overcome evil. If you enjoy it and want to show your support, please share it with your friends.</p>
+        </div>
+        <br class="clear" />
+    </div>
+</div>
 
-<p>This is the homepage.</p>
+
+<div class="wrapper">
+  	<div id="container">
+    	<div id="content">
+      		<h2>{{latest_announcement.title}}</h2>
+      		<p>{{latest_announcement.body|safe}}</p>
+    	</div>
+    	<div id="column">
+      		<div class="holder">
+        		<h2>Twitter Stream</h2>
+        			<ul id="latestnews">
+          				<li>
+            				<p><strong>Indonectetus facilis leo nibh.</strong></p>
+            				<p><strong>Indonectetus facilis leo nibh.</strong></p>
+            				<p><strong>Indonectetus facilis leo nibh.</strong></p>
+            				<p><strong>Indonectetus facilis leo nibh.</strong></p>
+            				<p><strong>Indonectetus facilis leo nibh.</strong></p>
+            				<p class="readmore"><a href="#">Twitter &raquo;</a></p>
+          				</li>
+        			</ul>
+      		</div>
+    	</div>
+    	<br class="clear" />
+  	</div>
+</div>
+
+
+<div class="wrapper">
+    <div id="intro">
+    	<ul>
+    		{% for item in latest_items %}
+      		<li {% if forloop.last %} class= "last" {% endif %}>
+        		<h2>{{item.title}}</h2>
+    		    <p>{{item.body|safe|truncatewords_html:25}}</p>
+    			<p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+      		</li>
+      		{% endfor %}
+    	</ul>
+    	<br class="clear" />
+  	</div>
+</div>
+
 
 {% endblock content %}

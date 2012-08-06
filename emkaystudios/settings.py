@@ -18,6 +18,7 @@ else:
 
 
 TEMPLATE_DEBUG = DEBUG
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 # Calculate paths for django and the site
 # Used as starting points for various other paths
@@ -156,7 +157,8 @@ INSTALLED_APPS = (
     'gunicorn',
     'debug_toolbar',
     'django_extensions',
-    'emkaystudios',    
+    'emkaystudios',
+    'blog',
 )
 
 # A sample logging configuration. The only tangible logging
