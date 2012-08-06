@@ -8,7 +8,7 @@ from emkaystudios.settings import TWITTER_USERNAME
 import twitter
 
 def index(request):
-	latest_announcement = Announcement.objects.latest('created_on')
+	latest_announcement = Announcement.objects.all().order_by('-created_on')[:1]
 	latest_announcements = Announcement.objects.all().order_by('-created_on')[1:4]
 	latest_blog_posts = Post.objects.all().order_by('-created_on')[:3]
 
