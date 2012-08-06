@@ -17,7 +17,10 @@ def index(request):
 
 	latest_announcements = Announcement.objects.all().order_by('-created_on')[1:4]
 	latest_blog_posts = Post.objects.all().order_by('-created_on')[:3]
-	latest_tweets = twitter.Api().GetUserTimeline(TWITTER_USERNAME)[:5]
+	try:
+		latest_tweets = twitter.Api().GetUserTimeline(TWITTER_USERNAME)[:5]
+	except Exception:
+		latest_tweets = None
 
 	latest_items = sorted(
 		chain(latest_announcements, latest_blog_posts),
