@@ -20,6 +20,7 @@
   	<div id="container">
     	<div id="content">
       		<h2>{{latest_announcement.title}}</h2>
+          <div class="submitdate">{{latest_announcement.created_on|timesince}} ago</div>
       		<p>{{latest_announcement.body|safe}}</p>
     	</div>
     	<div id="column">
