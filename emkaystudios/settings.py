@@ -194,7 +194,7 @@ LOGGING = {
 
 
 # Set up Sessions
-SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
