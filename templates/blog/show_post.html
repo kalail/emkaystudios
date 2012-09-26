@@ -2,13 +2,9 @@
 
 {% block content %}
 
-<div class="wrapper">
-  	<div id="container">
-  		<h2>{{post.title}}</h2>
-  		<div class="submitdate">by {{post.user.first_name}} {{post.user.last_name}}</div>
-		<div class="submitdate">{{post.created_on}}</div>
-  		<p>{{post.body|safe}}</p>
-  	</div>
-</div>
+
+<h2>{{post.title}}</h2>
+<p>by {{post.user.first_name}} {{post.user.last_name}}<br/>{{post.created_on}}</p>
+<p>{{post.body|safe}}</p>
 
 {% endblock content %}

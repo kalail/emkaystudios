@@ -2,96 +2,31 @@
 
 {% block title %} - About{% endblock title %}
 
-{% block nav_bar %}
-	<li><a href={% url emkaystudios.views.index %}>Home</a></li>
-	<li class="active"><a href={% url emkaystudios.views.about %}>About</a></li>
-	<li><a href={% url emkaystudios.views.archive %}>Archive</a></li>
-	<li><a href={% url blog.views.index %}>Blog</a></li>
-	<li class="last"><a href={% url emkaystudios.views.contact %}>Contact Us</a></li>
-{% endblock nav_bar %}
+{% block nav %}
+
+<li><a href={% url emkaystudios.views.index %}>HOME</a></li>
+<li><a class="active" href={% url emkaystudios.views.about %}>ABOUT</a></li>
+<li><a href={% url emkaystudios.views.archive %}>ARCHIVE</a></li>
+<li><a href={% url blog.views.index %}>BLOG</a></li>
+<li><a href={% url emkaystudios.views.contact %}>CONTACT</a></li>
+
+{% endblock nav %}
 
 {% block content %}
 
-<div class="wrapper">
-  	<div id="container">
-		<h2>About</h2>
-		<p>
-			Founded by Emad Khan and Kashif Malik, EmKay Studios specializes in 3-D design, Video production and Sound composition.
-			<br>
-			<br>
-			3-D design encompasses stand alone projects as in the case of 3-D modeling for architecture, products and visual spaces. It also includes integration of 3-D elements into live video footage for example movie special effects.
-			<br>
-			<br>
-			Video production includes all three stages: Pre-production i.e. script writing and idea generation, Production i.e. directing and producing on site shooting and Post-production i.e. editing, video design, color grading, special effects and more.
-			<br>
-			<br>
-			Sound composition compliments video production where original scores are to be composed for projects. Music can be composed separately where required. We also provide Sound mastering and Editing services.
-		</p>
-    	<ul>
-    		<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-          	<li>
-            	<h2>Emad Khan</h2>
-            	<p><img class="imgl" src="http://www.tes.co.uk/magazine/graphics/graphic_placeholder_60x60.gif" alt="" /></p>
-            	<p>
-                    At the 'Inception' of EmKay Studios, Kashif picked up his iPhone, turned on the camera and told Emad to grab a toy gun and perform advanced military style moves. This show of athleticism would eventually become their first short action movie (the quality of which was terrible owing to 'The Dark Knight' outside and lack of lights).&nbsp;
-                    <br>
-                    <br>
-                    In the 'Following' projects, Emad tried his hand behind the camera and the rest is as they say history. However, because of his humble origins, he has never let 'The Prestige' of the Director's seat get to his head.
-                    <br>
-                    <br>
-                    Emad enjoys reading up on Philosophy, Psychology and Physics.
-                    <br>
-                    <br>
-                    His favorite Director is Christopher Nolan....which should explain the...never mind.
-                </p>
-          	</li>
-          	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-        	<br class="clear" />
-          	<li>
-            	<h2>Kashif Malik</h2>
-            	<p><img class="imgl" src="http://www.tes.co.uk/magazine/graphics/graphic_placeholder_60x60.gif" alt="" /></p>
-            	<p>Kashif is officially an Electrical Engineer, but his passion lies in so many areas besides that. He runs a VFX studio that specializes in all things film, whilst also working at a robotics lab dealing with mechatronics. He loves steak and long walks on the beach. His biggest passion perhaps is being his own boss, which puts him in a great position working on this startup with the team.</p>
-            	<br class="clear" />
-          	</li>
-    	</ul>
-	</div>
-</div>
+
+<h2>About</h2>
+<p>
+	Founded by Emad Khan and Kashif Malik, EmKay Studios specializes in 3-D design, Video production and Sound composition.
+	<br>
+	<br>
+	3-D design encompasses stand alone projects as in the case of 3-D modeling for architecture, products and visual spaces. It also includes integration of 3-D elements into live video footage for example movie special effects.
+	<br>
+	<br>
+	Video production includes all three stages: Pre-production i.e. script writing and idea generation, Production i.e. directing and producing on site shooting and Post-production i.e. editing, video design, color grading, special effects and more.
+	<br>
+	<br>
+	Sound composition compliments video production where original scores are to be composed for projects. Music can be composed separately where required. We also provide Sound mastering and Editing services.
+</p>
 
 {% endblock content %}

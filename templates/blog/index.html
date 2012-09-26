@@ -2,26 +2,22 @@
 
 {% block content %}
 
-<div class="wrapper">
-	<div id="container">
-		<div id="comments">
-			<h2>Blogosphere</h2>
-			<ul class="commentlist">
-				{% for post in all_posts %}
-					<li class={% if forloop.counter|divisibleby:2 %}"comment_even"{% else %}comment_odd{% endif %}>
-						<div class="author"><span class="name"><a href={% url blog.views.show_post post_id=post.id post_slug=post.slug %}>{{post.title}}</a></span></div>
-						<div class="submitdate">by {{post.user.first_name}} {{post.user.last_name}}</div>
-						<div class="submitdate">{{post.created_on}}</div>
-						<p>{{post.body|safe|truncatewords_html:45}}</p>
-					</li>
-				{% empty %}
-					<li>
-						<p>There are no Posts yet.</p>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
-	</div>
-</div>
+
+<h2>Blog</h2>
+<ul>
+	{% for post in all_posts %}
+		<li>
+			<h2>{{post.title}}</h2>
+			<p>by {{post.user.first_name}} {{post.user.last_name}}<br/>{{post.created_on}}</p>
+			<p>{{post.body|safe|truncatewords_html:45}}</p>
+			<a class="read_more" href={% url blog.views.show_post post_id=post.id post_slug=post.slug %}>Continue Reading &raquo;</a>
+		</li>
+		<br/>
+	{% empty %}
+		<li>
+			<p>There are no Posts yet.</p>
+		</li>
+	{% endfor %}
+</ul>
 
 {% endblock content %}

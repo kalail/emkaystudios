@@ -3,80 +3,50 @@
 {% block title %} - Home{% endblock title %}
 
 
-{% block nav_bar %}
+{% block nav %}
 
-<li class="active"><a href={% url emkaystudios.views.index %}>Home</a></li>
-<li><a href={% url emkaystudios.views.about %}>About</a></li>
-<li><a href={% url emkaystudios.views.archive %}>Archive</a></li>
-<li><a href={% url blog.views.index %}>Blog</a></li>
-<li class="last"><a href={% url emkaystudios.views.contact %}>Contact Us</a></li>
+<li><a class="active" href={% url emkaystudios.views.index %}>HOME</a></li>
+<li><a href={% url emkaystudios.views.about %}>ABOUT</a></li>
+<li><a href={% url emkaystudios.views.archive %}>ARCHIVE</a></li>
+<li><a href={% url blog.views.index %}>BLOG</a></li>
+<li><a href={% url emkaystudios.views.contact %}>CONTACT</a></li>
 
-{% endblock nav_bar %}
+{% endblock nav %}
 
 
 {% block content %}
 
-<div class="wrapper">
-    <div id="latest">
-        <iframe class="fl_left" src="https://www.youtube-nocookie.com/embed/qzydkG8Wqxk?rel=0&autohide=1" frameborder="0" allowfullscreen></iframe>
-        <div class="fl_right">
-            <h2>Leverage - Short Film</h2>
-            <p>What is one man prepared to do to overcome his enemy's leverage.</p>
-            <p>Directed by: Emad Khan</p>
-            <p>Written by: Emad Khan</p>
-            <p>Starring: Yasin Asad, Matthias Vollhardt</p>
-        </div>
-        <br class="clear" />
-    </div>
+
+<div id="latest">
+	<h2>Welcome</h2>
+	<p></p>
 </div>
 
-
-<div class="wrapper">
-  	<div id="container">
-    	<div id="content">
-      		<h2>{{latest_announcement.title}}</h2>
-          <div class="submitdate">{{latest_announcement.created_on|timesince}} ago</div>
-      		<p>{{latest_announcement.body|safe}}</p>
-    	</div>
-    	<div id="column">
-      		<div class="holder">
-        		<h2>Twitter Stream</h2>
-        			<ul id="latestnews">
-          				<li>
-          					{% for tweet in latest_tweets %}
-	            				<p><strong>{{ tweet.text }}</strong></p>
-            				{% empty %}
-            					<p>There are no tweets yet!</p>
-            				{% endfor %}
-            				<p class="readmore"><a href="https://twitter.com/EmKayStudios">Twitter &raquo;</a></p>
-          				</li>
-        			</ul>
-      		</div>
-    	</div>
-    	<br class="clear" />
-  	</div>
+<div id="featured">
+	<iframe id="video" src="https://www.youtube-nocookie.com/embed/qzydkG8Wqxk?rel=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+	<div id="description">
+		<h2 id="name">Leverage - Short Film</h2>
+		<p>What is one man prepared to do to overcome his enemy's leverage.</p>
+		<p>Directed by: Emad Khan</p>
+		<p>Written by: Emad Khan</p>
+		<p>Starring: Yasin Asad, Matthias Vollhardt</p>
+	</div>
 </div>
 
-
-<div class="wrapper">
-    <div id="intro">
-    	<ul>
-    		{% for item in latest_items %}
-	      		<li {% if forloop.last %} class= "last" {% endif %}>
-	        		<h2>{{item.title}}</h2>
-	    		    <p>{{item.body|safe|truncatewords_html:25}}</p>
-	    			<p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-	      		</li>
-	      	{% empty %}
-	      		<li class= "last" >
-	        		<h2>There Are No Posts!</h2>
-	    		    <p>Not yet at least.</p>
-	      		</li>
-      		{% endfor %}
-    	</ul>
-    	<br class="clear" />
-  	</div>
+<div id="twitter">
+	<h2>Twitter</h2>
+	<ul>
+		<li>
+			{% for tweet in latest_tweets %}
+				<p>{{ tweet.text }}</p>
+			{% empty %}
+				<p>There are no tweets yet!</p>
+			{% endfor %}
+			<a class="read_more" href="https://twitter.com/EmKayStudios">Twitter &raquo;</a>
+		</li>
+	</ul>
 </div>
+
 
 
 {% endblock content %}
