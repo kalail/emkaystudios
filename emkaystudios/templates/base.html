@@ -122,20 +122,19 @@
 
 
 
-		{# Philosophy #}
 				
-				<!-- start: Icon Boxes -->
+				{# Philosophy #}
 				<div class="features">
 					{% for philosophy in philosophies %}
-					<div class="span4">
+					<div class="span4 pull-center">
 						<br>
 						<h3>{{ philosophy.title }}</h3>
+						<br>
 						<p>{{ philosophy.text }}</p>
 					</div>
 					{% endfor %}
 
 				</div>
-				<!-- end: Icon Boxes -->
 				<div class="clear"></div>
 				
 				<br>
@@ -144,6 +143,9 @@
 				<br>
 				<br>
 				<br>
+				<br>
+				<br>
+				<br>
 
 
 
@@ -151,26 +153,22 @@
 
 				
 
-			<!-- Start Features -->
+					{# Technological Skills #}
 					<div class="row-fluid features">
 
 					<!-- FEATURES 2 -->
 					<div class="span12 featured span12-home-responsive">
 
+						{% for skill in technical_skills %}
 						
-						<div class="span4">
-							<h3 class="pull-center">Audio</h3>
-							<img src="{% static 'Metro/img/feature1.png' %}" alt="">
-							<p><a href="#" class="desc">This is some text about the feature. It can be Lorum.</a></p>
+						<div class="span4 pull-center">
+							<h4>{{ skill.title }}</h4>
+							<img src="{{ skill.icon.url }}" alt="">
+							{# <img src="{% static 'Metro/img/feature1.png' %}" alt=""> #}
+							<p>{{ skill.text }}</p>
 						</div>
-						<div class="span4">
-							<img src="{% static 'Metro/img/feature2.png' %}" alt="">
-							<p><a href="#" class="desc">This is some text about the feature. It can be Lorum.</a></p>
-						</div>
-						<div class="span4">
-							<img src="{% static 'Metro/img/feature3.png' %}" alt="">
-							<p><a href="#" class="desc">This is some text about the feature. It can be Lorum.</a></p>
-						</div>
+
+						{% endfor %}
 
 					</div>
 
@@ -185,51 +183,23 @@
 
 							<!-- Blogs -->
 							<div class="row-fluid news">
-							<h2>News</h2>
+								<h2>News</h2>
 							</div>
+
 							<div class="row-fluid">
-							<div class="span3">
+								{% for post in blog_posts %}
 
-						 <a href="blog.html"><img src="{% static 'Metro/img/blog1.png' %}" alt="" class="member"></a>
-							<h4>Blog post</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nisi non ipsum hendrerit condimentum.</p>
+									<div class="span3">
+										<a href="#"><img src="{% static 'Metro/img/blog3.png' %}" alt="" class="member"></a>
+										<h4>{{ post.title }}</h4>
+										<p>{{ post.text }}</p>
+									</div>
 
+								{% endfor %}
 							</div>
 
-							<!-- Blog Entries -->
-
-							
-							<div class="span3">
-
-						 <a href="blog.html"><img src="{% static 'Metro/img/blog2.png' %}" alt="" class="member"></a>
-							<h4>Blog post</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nisi non ipsum hendrerit condimentum.</p>
-
-							</div>
-
-
-							<div class="span3">
-
-							<a href="blog.html"><img src="{% static 'Metro/img/blog3.png' %}" alt="" class="member"></a>
-							<h4>Blog post</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nisi non ipsum hendrerit condimentum.</p>
-
-							</div>
-
-
-
-
-							<div class="span3">
-
-							<a href="blog.html"><img src="{% static 'Metro/img/blog4.png' %}" alt="" class="member"></a>
-							<h4>Blog post</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac nisi non ipsum hendrerit condimentum.</p>
-
-							</div>
-</div>
-
+						</div>
 	
-	</div>
 
 {% include "_footer.html" %}
 
