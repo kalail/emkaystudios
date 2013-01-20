@@ -9,7 +9,7 @@ DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 # Amazon S3 setting
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME = 'emkaystudios_static'
+AWS_STORAGE_BUCKET_NAME = 'emkaystudios'
 
 DEFAULT_FILE_STORAGE = 'emkaystudios.helpers.StaticS3Storage'
 STATICFILES_STORAGE = 'emkaystudios.helpers.MediaS3Storage'
