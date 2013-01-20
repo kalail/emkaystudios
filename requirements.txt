@@ -1,4 +1,5 @@
 Django==1.4
+PIL==1.1.7
 South==0.7.6
 Unipath==0.2.1
 Werkzeug==0.8.3
@@ -9,8 +10,10 @@ billiard==2.7.3.19
 boto==2.5.2
 celery==3.0.13
 dj-database-url==0.2.1
+django-appconf==0.5
 django-cache-panel==0.1
 django-celery==3.0.11
+django-compressor==1.2
 django-debug-toolbar==0.9.4
 django-extensions==0.9
 django-pylibmc-sasl==0.2.4
@@ -25,5 +28,6 @@ pylibmc==1.2.3
 python-dateutil==1.5
 python-twitter==0.8.2
 pytz==2012j
+redis==2.7.2
 simplejson==2.6.1
 wsgiref==0.1.2

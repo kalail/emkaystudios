@@ -36,22 +36,22 @@ STATIC_ROOT = ''
 
 # Additional locations of static files - absolute paths
 STATICFILES_DIRS = (
-	PROJECT_ROOT.child('static')
+	PROJECT_ROOT.child('static'),
 )
 
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
 	'django.contrib.staticfiles.finders.FileSystemFinder',
-	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+   'django.contrib.staticfiles.finders.DefaultStorageFinder',
+   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+   # 'compressor.finders.CompressorFinder',
 )
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
 	'django.template.loaders.filesystem.Loader',
-	'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+	'django.template.loaders.app_directories.Loader'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,18 +85,18 @@ INSTALLED_APPS = (
 	'django.contrib.admin',
 	'django.contrib.admindocs',
 	
-	# Admin
+	# Third party
 	'south',
 	'djcelery',
 	'storages',
 	'gunicorn',
 	'django_extensions',
-
-	# Debug
 	'debug_toolbar',
 	'cache_panel',
+	# 'compressor',
 
 	# Project
+	'home',
 	'blog',
 )
 
@@ -134,3 +134,4 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 # Celery settings
 import djcelery
 djcelery.setup_loader()
+

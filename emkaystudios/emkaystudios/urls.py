@@ -16,5 +16,5 @@ urlpatterns = patterns('',
     # url(r'^contact/$', 'emkaystudios.views.contact'),
     # url(r'^portfolio/$', 'emkaystudios.views.portfolio'),
     # url(r'^subscribe/$', 'emkaystudios.views.subscribe'),
-    # url(r'^$', 'emkaystudios.views.index'),
+    url(r'^$', include('home.urls')),
 )

@@ -14,13 +14,14 @@ DATABASES = {
 
 # URL prefix for static files.
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+# COMPRESS_URL = '/static/'
 
 # Unique key for Django.
 SECRET_KEY = '7t96wt*wb9c@szmmt=!a01z8#ic)fgx)mk+u0vaeht+5lj+_g0'
 
-# Redis settings
-BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+# Celery settings
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
 # Set up Cache
 CACHES = {
@@ -29,3 +30,22 @@ CACHES = {
 		'LOCATION': '127.0.0.1:11211'
 	}
 }
+
+# Django debug toolbar
+DEBUG_TOOLBAR_CONFIG = {
+	'INTERCEPT_REDIRECTS': False,
+
+}
+INTERNAL_IPS = ('0.0.0.0',)
+DEBUG_TOOLBAR_PANELS = (
+	'debug_toolbar.panels.version.VersionDebugPanel',
+	'debug_toolbar.panels.timer.TimerDebugPanel',
+	'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
+	'debug_toolbar.panels.headers.HeaderDebugPanel',
+	'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
+	'debug_toolbar.panels.template.TemplateDebugPanel',
+	'debug_toolbar.panels.sql.SQLDebugPanel',
+	'cache_panel.panel.CacheDebugPanel',
+	'debug_toolbar.panels.signals.SignalDebugPanel',
+	'debug_toolbar.panels.logger.LoggingPanel',
+)
