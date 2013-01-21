@@ -45,7 +45,7 @@ STATICFILES_FINDERS = (
 	'django.contrib.staticfiles.finders.FileSystemFinder',
    'django.contrib.staticfiles.finders.DefaultStorageFinder',
    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-   # 'compressor.finders.CompressorFinder',
+   'compressor.finders.CompressorFinder',
 )
 
 # List of callables that know how to import templates from various sources.
@@ -93,7 +93,7 @@ INSTALLED_APPS = (
 	'django_extensions',
 	'debug_toolbar',
 	'cache_panel',
-	# 'compressor',
+	'compressor',
 
 	# Project
 	'home',

@@ -1,3 +1,5 @@
+from emkaystudios.settings.base import PROJECT_ROOT
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -12,10 +14,11 @@ DATABASES = {
 	}
 }
 
+COMPRESS_ROOT = PROJECT_ROOT.child('static')
+
 # URL prefix for static files.
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-# COMPRESS_URL = '/static/'
 
 # Unique key for Django.
 SECRET_KEY = '7t96wt*wb9c@szmmt=!a01z8#ic)fgx)mk+u0vaeht+5lj+_g0'
@@ -33,10 +36,11 @@ CACHES = {
 
 # Django debug toolbar
 DEBUG_TOOLBAR_CONFIG = {
+	'SHOW_TOOLBAR_CALLBACK': lambda (x): True,
 	'INTERCEPT_REDIRECTS': False,
 
 }
-INTERNAL_IPS = ('0.0.0.0',)
+
 DEBUG_TOOLBAR_PANELS = (
 	'debug_toolbar.panels.version.VersionDebugPanel',
 	'debug_toolbar.panels.timer.TimerDebugPanel',

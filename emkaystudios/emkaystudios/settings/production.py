@@ -13,10 +13,12 @@ AWS_STORAGE_BUCKET_NAME = 'emkaystudios'
 
 DEFAULT_FILE_STORAGE = 'emkaystudios.helpers.MediaS3Storage'
 STATICFILES_STORAGE = 'emkaystudios.helpers.StaticS3Storage'
+COMPRESS_STORAGE = STATICFILES_STORAGE
 
 # URL prefix for static files.
 STATIC_URL = 'https://s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME + '/static/'
 MEDIA_URL = 'https://s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME + '/media/'
+COMPRESS_URL = STATIC_URL
 
 
 # Unique key for Django.
